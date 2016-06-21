@@ -80,10 +80,22 @@ In this paper, we will treat a simple model for a one-dimensional chain of atoms
 
 $$ H = -t \sum_x (c_x^{\dagger}c_{x+a} + c_x^{\dagger}c_{x-a}) + \sum_x (\mu + \Delta \cos(Qx + \phi))c_x^{\dagger}c_x $$
 
+The first term describes hopping between sites, and the second term contains the chemical potential and the charge density wave.
+
 It is important to notice that if $\lambda = n a$ with $n$ integer and $a$ the lattice spacing, the charge order is said to be commensurate, i.e. the charge modulation is neatly periodic in $n$ lattice sites. If $\lambda$ is not of this form, the charge order is called incommensurate.
 
-To diagonalize $H$, we first apply the canonical Fourier transform $c_x = \frac{1}{}
+After imposing periodic boundary conditions, commensurate charge order is the only option, and the total amount of lattice sites $N$ must equal a multiple of $\lambda$.
 
+To diagonalize $H$, we first apply the canonical Fourier transform:
+
+$$c_x = \frac{1}{\sqrt{N}}\sum_{0 \leq k \leq \frac{2\pi}{a}}e^{ikx}c_k$$
+
+The hopping term and the chemical potential both give contributions diagonal in $k$. After writing $\cos(Qx + \phi) = \frac{1}{2}(e^{i(Qx + \phi)} + e^{-i(Qx + \phi)}) $, we see that the charge wave in real space gives an off-diagonal contribution $k$. The resulting Hamiltonian in Fourier space is:
+
+$$ H = \sum_{0 \leq k \leq \frac{2\pi}{a}} (\frac{1}{2}\epsilon_k c_k^{\dagger}c_k + \Delta_\phi c_k^{\dagger}c_{k+Q} + \text{H.c.}) $$
+
+Where $\epsilon_k = -2t \cos(ka) + \mu $
+In addition, $\Delta_\phi = \Delta e^{i\phi}$, i.e. $\Delta$ acquires a phase corresponding to the offset of the charge distribution.
 
 \subsection{Figures and Tables}
 
