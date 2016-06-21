@@ -87,13 +87,21 @@ After imposing periodic boundary conditions, commensurate charge order is the on
 
 To diagonalize $H$, we first apply the canonical Fourier transform:
 
-$$c_x = \frac{1}{\sqrt{N}}\sum_{0 \leq k \leq \frac{2\pi}{a}}e^{ikx}c_k$$
+$$c_x = \frac{1}{\sqrt{N}}\sum_{0 \leq k < \frac{2\pi}{a}}e^{ikx}c_k$$
 
 The hopping term and the chemical potential both give contributions diagonal in $k$. After writing $\cos(Qx + \phi) = \frac{1}{2}(e^{i(Qx + \phi)} + e^{-i(Qx + \phi)}) $, we see that the charge wave in real space gives an off-diagonal contribution $k$. The resulting Hamiltonian in Fourier space is:
 
-$$ H = \sum_{0 \leq k \leq \frac{2\pi}{a}} (\frac{1}{2}\epsilon_k c_k^{\dagger}c_k + \Delta_\phi c_k^{\dagger}c_{k+Q} + \text{H.c.}) $$
+$$ H = \sum_{0 \leq k < \frac{2\pi}{a}} (\frac{1}{2}\epsilon_k c_k^{\dagger}c_k + \Delta_\phi c_k^{\dagger}c_{k+Q} + \text{H.c.}) $$
 
 Where $\epsilon_k = -2t \cos(ka) + \mu $ and $\Delta_\phi = \Delta e^{i\phi}$, i.e. $\Delta$ acquires a phase corresponding to the offset of the charge distribution.
+
+\section{Bruno Stukje}
+Let\'s rewrite this Hamiltonian in a nice Matrix form:
+\begin{align*}
+\hat{H} &= \sum_{0 \leq k < \frac{2\pi}{a}} (\frac{1}{2}\epsilon_k c_k^{\dagger}c_k + \Delta_\phi c_k^{\dagger}c_{k+Q} + \text{H.c.})\\
+&=\sum_{0 \leq k < \frac{2\pi}{qa}} \sum_{p=0}^{q-1}  (\frac{1}{2}\epsilon_{k+\frac{2\pi p}{qa}} c_{k+\frac{2\pi p}{qa}}^{\dagger}c_{k+\frac{2\pi p}{qa}} + \Delta_\phi c_{k+\frac{2\pi p}{qa}}^{\dagger}c_{k+\frac{2\pi p}{qa}+Q} + \text{H.c.})\\
+\end{align*}
+
 
 \subsection{Figures and Tables}
 
