@@ -58,9 +58,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 
-A simple model for a one-dimensional chain of atoms with a charge density wave is treated.
-
-
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.
 \end{abstract}
 
 
@@ -71,7 +74,9 @@ Materials in which the electron density $\rho(x)$ is modulated with a wave of
 wavelength $\lambda = \frac{2\pi}{Q}$ are said to contain a charge density wave.
 In this paper, we will treat a simple model for a one-dimensional chain of atoms containing such a charge density wave:
 
-$$ H = -t \sum_x (c_x^{\dagger}c_{x+a} + c_x^{\dagger}c_{x-a}) + \sum_x (\mu + \Delta \cos(Qx + \phi))c_x^{\dagger}c_x $$
+\begin{align}
+H = -t \sum_x (c_x^{\dagger}c_{x+a} + c_x^{\dagger}c_{x-a}) + \sum_x (\mu + \Delta \cos(Qx + \phi))c_x^{\dagger}c_x
+\end{align}
 
 The first term describes hopping between sites, and the second term contains the chemical potential and the charge density wave. From the fact that at a band gap opens at $\mu$, it follows that $\mu = -2t\cos(\frac{Qa}{2})$.
 
@@ -89,24 +94,88 @@ $$ H = \sum_{0 \leq k < \frac{2\pi}{a}} (\frac{1}{2}\epsilon_k c_k^{\dagger}c_k 
 
 Where $\epsilon_k = -2t \cos(ka) + \mu $ and $\Delta_\phi = \Delta e^{i\phi}$, i.e. $\Delta$ acquires a phase corresponding to the offset of the charge distribution.
 
-Matrix:
+
+
+
+
+
+\subsection{Matrix Form Hamiltonian}
+We will take a few steps to put this Hamiltonian in Matrix form.
+This will prove to be a more convinient way to perform numerical calculations.\\
+First we group terms in the sum over $k$ into $q$ sums over $m$. We haven't assumed anything new about any values.
+
+This is just rewritting.
+\begin{align*}
+H &= \sum_{0 \leq k < \frac{2\pi}{a}} (\frac{1}{2}\epsilon_k c_k^{\dagger}c_k + \Delta_\phi c_k^{\dagger}c_{k+Q} + \text{H.c.})\\
+&=\sum_{0 \leq k < \frac{2\pi}{qa}} \sum_{m=0}^{q-1}  (\frac{1}{2}\epsilon_{k+\frac{2\pi m}{qa}} c_{k+\frac{2\pi m}{qa}}^{\dagger}c_{k+\frac{2\pi m}{qa}} + \Delta_\phi c_{k+\frac{2\pi m}{qa}}^{\dagger}c_{k+\frac{2\pi m}{qa}+Q} + \text{H.c.})\\
+\end{align*}
+
+Since our case is commensurate, we can express $Q=\frac{2\pi}{qa}$. Furthermore we can shift the sum over $m$ by 1,
+since $k$ and $k+\frac{2\pi}{a}$ are equivalent points in $k$-space.
+
+\begin{align*}
+  &=\sum_{0 \leq k < Q} \sum_{p=1}^{q}  (\frac{1}{2}\epsilon_{k+Qm} c_{k+Qm}^{\dagger}c_{k+Qm} + \Delta_\phi c_{k+Qm}^{\dagger}c_{k+Q(m+1)} + \text{H.c.})\\
+  &=\sum_{0\leq k < Q} (c_{k+Q}^{\dagger},c_{k+2Q}^{\dagger},\dots,c_{k+qQ}^{\dagger})\tilde{H}_{k} (c_{k+Q},c_{k+2Q},\dots,c_{k+qQ})^{T} \\
+\end{align*}
+
+\begin{align}
+\tilde{H}_{k}=\begin{bmatrix}
+\epsilon_{k+Q}       & \Delta_\phi     & 0      & \hdots     & 0     & \Delta_\phi^*  \\
+\Delta_\phi^*    & \epsilon_{k+2Q} & \Delta_\phi & 0 & \hdots     & 0 \\
+0               & \Delta_\phi^* & \ddots & \ddots  &  &\vdots \\
+\vdots   & 0 & \ddots &  &  &  0  \\
+0 &  \vdots    &  &  &  & \Delta_{\phi} \\
+\Delta_\phi & 0 &    \hdots          &0   & \Delta_{\phi}^{*}      & \epsilon_{k+qQ}
+\end{bmatrix}
+\end{align}
+
+
+
+
+\section{Chern numbers and Electron transport}
+
+Varying the phase of the CDW, does not necessarily transport the electrons along the chain.
+The transport depends on the chemical potential.
+For $\mu(Q=\frac{ap}{q}) = 0$, we have \textit{no} electron transport.
+This corresponds to our Chern numbers being $0$.
+This is in agreement with the calculations of section \textbf{???}.
+The important connection to make is that the Chern numbers are antisymmetric at the same point as the chemical potential is.
+This is the point for which the electron transport changes directions.
+The antisymmetry of the Chern numbers is easily seen in the antisymmetry around $\frac{1}{2}$ of the colouring of the spectrum as a function of $\frac{p}{q}$ ie the Hofstadter Butterfly figure \textbf{???}.\\
+The transport of electrons along the chain is analogous to the transport of electrons in the integer quantum Hall effect.
+In the next subsection we look more carefully at this comparison.
+
+\subsection{The Hofstadter Hamiltonian vs CDW}
+The CDW spectrum is a Hofstadter butterfly. It turns out that the CDW is very similar to that where the butterfly originally arose.
+So let's compare our real-space Hamiltonian to that of the tight-binding model on an isotropic square lattice under a vertical uniform magnetic field in $k$-space \cite{Yoshioka}:
 $$
-\begin{bmatrix}
-\epsilon_k       & \Delta_\phi     & 0      & \hdots       & 0     & \Delta_\phi^*  \\
-\Delta_\phi^*    & \epsilon_{k+Q} & \Delta_\phi &  &        & 0 \\
-0               & \Delta_\phi^* & \ddots & \ddots  & & 0   \\
-\vdots   &  & \ddots &  &  &   \vdots \\
-0 &        &  &  &  & 0 \\
-\Delta_\phi & 0 & 0     & \hdots             & 0      & \epsilon
+\mathcal{H}=-t\sum_{k_{x},k_{y}}(c_{1}^{\dagger}(\textbf{k}),c_{2}^{\dagger}(\textbf{k}),\dots,c_{q}^{\dagger}(\textbf{k}))\tilde{\mathcal{H}}_{k}(c_{1}(\textbf{k}),c_{2}(\textbf{k}),\dots,c_{q}(\textbf{k}))
+$$
+$$
+\tilde{\mathcal{H}}_{k}=\begin{bmatrix}
+E_{k_{y}+2\pi \Phi}      & 1     & 0      & \hdots     & 0     & e^{-iqk_{x}}  \\
+1    &E_{k_{y}+4\pi \Phi} & 1 & 0 & \hdots     & 0 \\
+0               & 1 & \ddots & \ddots  &  &\vdots \\
+\vdots   & 0 & \ddots &  &  &  0  \\
+0 &  \vdots    &  &  &  & 1 \\
+e^{iqk_{x}} & 0 &    \hdots          &0   & 1      & E_{k_{y}+2\pi q\Phi}
 \end{bmatrix}
 $$
 
-\section{Bruno Stukje}
-Let\'s rewrite this Hamiltonian in a nice Matrix form:
+With $E_{k_{y}+2\pi m\Phi}=2\cos(k_{y}+2\pi m\Phi)$. Where $\Phi$ is in units of the magnetic flux quantum.
+
+This is how to map this situation onto that of the CDW.
+
 \begin{align*}
-\hat{H} &= \sum_{0 \leq k < \frac{2\pi}{a}} (\frac{1}{2}\epsilon_k c_k^{\dagger}c_k + \Delta_\phi c_k^{\dagger}c_{k+Q} + \text{H.c.})\\
-&=\sum_{0 \leq k < \frac{2\pi}{qa}} \sum_{p=0}^{q-1}  (\frac{1}{2}\epsilon_{k+\frac{2\pi p}{qa}} c_{k+\frac{2\pi p}{qa}}^{\dagger}c_{k+\frac{2\pi p}{qa}} + \Delta_\phi c_{k+\frac{2\pi p}{qa}}^{\dagger}c_{k+\frac{2\pi p}{qa}+Q} + \text{H.c.})\\
+k_{y} &\leftrightarrow \phi  \\
+\Phi &\leftrightarrow \frac{Q}{2\pi} \\
 \end{align*}
+
+The $x$-sum in the CDW case goes from sites 1 to $q$.
+The length of the chain $q$ is the same as the length of the magnetic unit cells in the lattice.
+The phase due to the flux in the lattice case gives us the complex exponential in the corners of our matrix.
+Finally to make the mapping work we need to set $\Delta = 2t$ and $a=1$.
+
 
 \section{Topological classification}
 
@@ -131,13 +200,15 @@ a system is symmetric in the combination of time and particle hole symmetry S is
 given the value of $1$. When it is not symmetric in the combination of them the
 value is $0$. All together there are than $10$ different topological sectors
 where S is an invariant. This Tenfold Way classifies the allowed topologies of
-all gapped, disordered, quadratic fermion theories into ten classes based on the
+all gapped, disordeblack, quadratic fermion theories into ten classes based on the
 dimension of the parameter space, see ???. The advantage of this classification is that
 these sectors have edge states which are classified by a nonzero Chern number.
 Because these edge states do not
 depend on small perturbations in the bulk of the material it is possible to
 measure variables at the edge that give information of the whole material.
-
+To classify our Hamiltonian we see that there are no zero's on the diagonal,
+which exclude the 3 chiral cases. Because the Hamiltonian can be expressed as a 2x2
+ matrix, exept in the case of half filling, the four Bogoliubov-de Gennes cases. From the three
 
 
 \subsection{Figures and Tables}
