@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  22 JUN 2016 16:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  22 JUN 2016 23:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -253,33 +253,72 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 137.
 )
-(./main.aux)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen126
+\captionmargin@=\dimen127
+\captionwidth=\dimen128
+\caption@tempdima=\dimen129
+\caption@indent=\dimen130
+\caption@parindent=\dimen131
+\caption@hangindent=\dimen132
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2->\ifx \@captype \@IEEEta
+blestring \begin {center}{\footnotesize #1}\\{\footnotesize \scshape #2}\end {c
+enter}\@IEEEtablecaptionsepspace \else \@IEEEfigurecaptionsepspace \setbox \@te
+mpboxa \hbox {\footnotesize #1.~~ #2}\ifdim \wd \@tempboxa >\hsize \setbox \@te
+mpboxa \hbox {\footnotesize #1.~~ }\parbox [t]{\hsize }{\footnotesize \noindent
+ \unhbox \@tempboxa #2}\else \ifcenterfigcaptions \hbox to\hsize {\footnotesize
+ \hfil \box \@tempboxa \hfil }\else \hbox to\hsize {\footnotesize \box \@tempbo
+xa \hfil }\fi \fi \fi .
+\c@ContinuedFloat=\count104
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
+\c@subfigure=\count105
+\c@subtable=\count106
+)
+(./main.aux
+
+LaTeX Warning: Label `fig:bandstructure' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
  (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count104
-\scratchdimen=\dimen126
+\scratchcounter=\count107
+\scratchdimen=\dimen133
 \scratchbox=\box29
-\nofMPsegments=\count105
-\nofMParguments=\count106
+\nofMPsegments=\count108
+\nofMParguments=\count109
 \everyMPshowfont=\toks21
-\MPscratchCnt=\count107
-\MPscratchDim=\dimen127
-\MPnumerator=\count108
-\makeMPintoPDFobject=\count109
+\MPscratchCnt=\count110
+\MPscratchDim=\dimen134
+\MPnumerator=\count111
+\makeMPintoPDFobject=\count112
 \everyMPtoPDFconversion=\toks22
 ) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -329,49 +368,48 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 61
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 65
 .
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 61
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 65
 .
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 61
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 65
 .
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 61
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 65
 .
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 61.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 65.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 61.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 65.
 
-Overfull \hbox (31.43596pt too wide) in paragraph at lines 98--98
+Overfull \hbox (31.43596pt too wide) in paragraph at lines 101--101
 [] 
  []
 
 
-Overfull \hbox (8.55869pt too wide) in paragraph at lines 106--106
+Overfull \hbox (8.55869pt too wide) in paragraph at lines 109--109
 [] 
  []
 
 
-LaTeX Warning: Citation `Yoshioka' on page 1 undefined on input line 137.
-
-
-Overfull \hbox (12.54253pt too wide) detected at line 140
+Overfull \hbox (12.54253pt too wide) detected at line 133
 \OMS/ztmcm/m/n/10 H \OT1/ztmcm/m/n/10 = \OMS/ztmcm/m/n/10 ^^@\OML/ztmcm/m/it/10
  t []\OT1/ztmcm/m/n/10 (\OML/ztmcm/m/it/10 c[]\OT1/ztmcm/m/n/10 ([])\OML/ztmcm/
 m/it/10 ; c[]\OT1/ztmcm/m/n/10 ([])\OML/ztmcm/m/it/10 ; [] ; c[]\OT1/ztmcm/m/n/
@@ -383,6 +421,41 @@ m/it/10 ; c[]\OT1/ztmcm/m/n/10 ([])\OML/ztmcm/m/it/10 ; [] ; c[]\OT1/ztmcm/m/n/
 
 
 ]
+<bandstructure_p=2_q=3.png, id=16, 113.7048pt x 118.041pt>
+File: bandstructure_p=2_q=3.png Graphic file (type png)
+
+<use bandstructure_p=2_q=3.png>
+Package pdftex.def Info: bandstructure_p=2_q=3.png used on input line 186.
+(pdftex.def)             Requested size: 113.70451pt x 118.0407pt.
+
+<bandstructure_p=3_q=5.png, id=17, 113.7048pt x 118.041pt>
+File: bandstructure_p=3_q=5.png Graphic file (type png)
+
+<use bandstructure_p=3_q=5.png>
+Package pdftex.def Info: bandstructure_p=3_q=5.png used on input line 190.
+(pdftex.def)             Requested size: 113.70451pt x 118.0407pt.
+
+<butterfly50ChernNormalTotal.png, id=18, 113.10255pt x 141.28786pt>
+File: butterfly50ChernNormalTotal.png Graphic file (type png)
+
+<use butterfly50ChernNormalTotal.png>
+Package pdftex.def Info: butterfly50ChernNormalTotal.png used on input line 216
+.
+(pdftex.def)             Requested size: 113.10226pt x 141.2875pt.
+
+<butterfly50ChernAccuTotal.png, id=20, 113.82526pt x 151.22498pt>
+File: butterfly50ChernAccuTotal.png Graphic file (type png)
+
+<use butterfly50ChernAccuTotal.png>
+Package pdftex.def Info: butterfly50ChernAccuTotal.png used on input line 221.
+(pdftex.def)             Requested size: 113.82497pt x 151.2246pt.
+
+Overfull \hbox (89.25166pt too wide) in paragraph at lines 221--223
+ [][] 
+ []
+
+[2 <./bandstructure_p=2_q=3.png (PNG copy)> <./bandstructure_p=3_q=5.png (PNG c
+opy)> <./butterfly50ChernNormalTotal.png> <./butterfly50ChernAccuTotal.png>]
 (./main.bbl)
 
 ** Conference Paper **
@@ -395,19 +468,21 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the US letter (8.5in X 11in) paper size.
 
-[2] (./main.aux)
+[3
 
-LaTeX Warning: There were undefined references.
+] (./main.aux)
+
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3087 strings out of 493117
- 44540 string characters out of 6135433
- 118933 words of memory out of 5000000
- 6485 multiletter control sequences out of 15000+600000
- 50225 words of font info for 104 fonts, out of 8000000 for 9000
+ 4214 strings out of 493117
+ 65110 string characters out of 6135433
+ 140703 words of memory out of 5000000
+ 7598 multiletter control sequences out of 15000+600000
+ 51361 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,16n,26p,422b,293s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,16n,38p,463b,344s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -419,10 +494,10 @@ onts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
 urw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/
 utmr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on main.pdf (2 pages, 87592 bytes).
+Output written on main.pdf (3 pages, 435201 bytes).
 PDF statistics:
- 52 PDF objects out of 1000 (max. 8388607)
- 37 compressed objects within 1 object stream
+ 62 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

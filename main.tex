@@ -24,6 +24,8 @@
 \usepackage{amsmath} % assumes amsmath package installed
 \usepackage{amssymb}  % assumes amsmath package installed
 \usepackage{color}
+\usepackage{caption}
+\usepackage{subcaption}
 
 \title{\LARGE \bf
   Spectrum of one-dimensional chain with commensurate charge density wave
@@ -44,8 +46,8 @@
 %         {\tt\small pmisra@cs.wright.edu}}
 %}
 
-\author{Arthur Boetes, Bruno Eijsvoogel, Robert Hauer, Geert Kapteijns
-Seminar Theoretical Physics
+\author{Arthur Boetes, Bruno Eijsvoogel, Robert Hauer, Geert Kapteijns\\
+Seminar Theoretical Physics\\
 June 2016
 }
 
@@ -62,16 +64,14 @@ June 2016
 
 Materials in which the electron density $\rho(x)$ is modulated with a wave of
 wavelength $\lambda = \frac{2\pi}{Q}$ are said to contain a charge density wave.
-In this paper, we will treat a simple model for a one-dimensional chain of atoms containing such a charge density wave:
+In this paper, we will treat a simple model for a one-dimensional chain of atoms containing such a charge density wave \cite{flicker2015}:
 
 \begin{align}
 H = -t \sum_x (c_x^{\dagger}c_{x+a} + c_x^{\dagger}c_{x-a}) + \sum_x (\mu + \Delta \cos(Qx + \phi))c_x^{\dagger}c_x
 \end{align}
 
-The first term describes hopping between sites, and the second term contains the chemical potential and the charge density wave. From the fact that at a band gap opens at $\mu$, it follows that $\mu = -2t\cos(\frac{Qa}{2})$.
-
-If $\lambda = n a$ with $n$ integer and $a$ the lattice spacing, the charge order is said to be commensurate, i.e. the charge modulation is neatly periodic in $n$ lattice sites. Otherwise, the charge order is called incommensurate.
-
+The first term describes hopping between sites, and the second term contains the chemical potential and the charge density wave. From the fact that a band gap opens at $\mu$, it follows that $\mu = -2t\cos(\frac{Qa}{2})$.
+If $\lambda = \frac{q}{p} a$ with $q$, $p$ coprime integers, $p \leq q$, and $a$ the lattice spacing, the charge order is said to be commensurate, i.e. the charge modulation is periodic in $q$ lattice sites. Otherwise, the charge order is called incommensurate.
 After imposing periodic boundary conditions, commensurate charge order is the only option, and the total amount of lattice sites $N$ must equal a multiple of $\lambda$.
 
 To diagonalize $H$, we first apply the canonical Fourier transform:
@@ -90,8 +90,9 @@ Where $\epsilon_k = -2t \cos(ka) + \mu $ and $\Delta_\phi = \Delta e^{i\phi}$, i
 
 
 \subsection{Matrix Form Hamiltonian}
-We will take a few steps to put this Hamiltonian in Matrix form.
-This will prove to be a more convinient way to perform numerical calculations.\\
+We will take a few steps to put the Hamiltonian in matrix form.
+This will prove to be a more convenient way to perform numerical calculations.
+
 First we group terms in the sum over $k$ into $q$ sums over $m$.
 
 \begin{align*}
@@ -107,7 +108,7 @@ since $k$ and $k+\frac{2\pi}{a}$ are equivalent points in $k$-space.
   &=\sum_{0\leq k < Q} (c_{k+Q}^{\dagger},c_{k+2Q}^{\dagger},\dots,c_{k+qQ}^{\dagger})\tilde{H}_{k} (c_{k+Q},c_{k+2Q},\dots,c_{k+qQ})^{T} \\
 \end{align*}
 
-\begin{align}
+\begin{align}\label{matrix_form}
 \tilde{H}_{k}=\begin{bmatrix}
 \epsilon_{k+Q}       & \Delta_\phi     & 0      & \hdots     & 0     & \Delta_\phi^*  \\
 \Delta_\phi^*    & \epsilon_{k+2Q} & \Delta_\phi & 0 & \hdots     & 0 \\
@@ -118,25 +119,15 @@ since $k$ and $k+\frac{2\pi}{a}$ are equivalent points in $k$-space.
 \end{bmatrix}
 \end{align}
 
+\smallskip
 
 
 
-\section{Chern numbers and Electron transport}
 
-Varying the phase of the CDW, does not necessarily transport the electrons along the chain.
-The transport depends on the chemical potential.
-For $\mu(Q=\frac{ap}{q}) = 0$, we have \textit{no} electron transport.
-This corresponds to our Chern numbers being $0$.
-This is in agreement with the calculations of section \textbf{???}.
-The important connection to make is that the Chern numbers are antisymmetric at the same point as the chemical potential is.
-This is the point for which the electron transport changes directions.
-The antisymmetry of the Chern numbers is easily seen in the antisymmetry around $\frac{1}{2}$ of the colouring of the spectrum as a function of $\frac{p}{q}$ ie the Hofstadter Butterfly figure \textbf{???}.\\
-The transport of electrons along the chain is analogous to the transport of electrons in the integer quantum Hall effect.
-In the next subsection we look more carefully at this comparison.
 
-\subsection{The Hofstadter Hamiltonian vs CDW}
+\section{Mapping onto the Hofstadter butterfly}
 Now we will compare our real-space Hamiltonian to that of the tight-binding model on an
-isotropic square lattice under a vertical uniform magnetic field in $k$-space \cite{Yoshioka}:
+isotropic square lattice under a vertical uniform magnetic field in $k$-space \cite{yoshioka2015}:
 $$
 \mathcal{H}=-t\sum_{k_{x},k_{y}}(c_{1}^{\dagger}(\textbf{k}),c_{2}^{\dagger}(\textbf{k}),\dots,c_{q}^{\dagger}(\textbf{k}))\tilde{\mathcal{H}}_{k}(c_{1}(\textbf{k}),c_{2}(\textbf{k}),\dots,c_{q}(\textbf{k}))
 $$
@@ -165,11 +156,93 @@ The length of the chain $q$ is the same as the length of the magnetic unit cells
 The phase due to the flux in the lattice case gives us the complex exponential in the corners of our matrix.
 Finally to make the mapping work we need to set $\Delta = 2t$ and $a=1$.
 
+\section{Numerical calculations and results}
+The numerical methods used to create the band structure and the butterfly are discussed here.
+For this, the matrix in equation \ref{matrix_form} is vital.
+The arguments of the matrix are $\{k,\phi,\Delta,Q,a\}$.
+For all numerical calculations, the mapping to the Hofdstadter problem ($\Delta = 2t$) is used and $a$ is set to 1.
+The chemical potential is dependent on $Q$ and $a$ as $\mu = -2t\cos(\frac{Qa}{2})$.
+As has been mentioned before, we look at cases were
+$\frac{Q a}{2 \pi} = \frac{p}{q}$, with $p \leq q$.
+For numerical purposes, the matrix is scaled to the hopping parameter $t$.
+More scaling is achieved by setting $k$ to $qka$.
+With this scaling the allowed energies, setting the chemical potential to zero, are between $-4$ and $4$.
+For the scaled momenta, $k$, $0 \leq k \leq 2 \pi$.
+
+The matrix has a size of $q$ by $q$ and diagonalizing it yields a spectrum of $q$ eigenvalues which might be degenerate.
+
+\subsection{Band structure}
+When calculating the band structure, the value of $Q$ is fixed and $k$ is varied.
+The phase $\phi$ can also be varied, but is set to zero for convenience.
+Every value of $k$ yields a matrix and in turn every matrix is diagonalized thus yielding an energy spectrum for every $k$.
+Grouping these values correctly results in the band structure.
+
+For the different values of
+$\frac{Q a}{2 \pi} \in \{2/3,3/5 \}$ the band structures are plotted in Fig. 1.
+
+\begin{figure}[tbph]
+\begin{subfigure}{.49\linewidth}
+\centering
+\includegraphics{bandstructure_p=2_q=3.png}
+\end{subfigure}
+\begin{subfigure}{.49\linewidth}
+\centering
+\includegraphics{bandstructure_p=3_q=5.png}
+\end{subfigure}
+\caption{Band structure of the CDW with phase $\phi = 0$.
+Left:$p = 2$, $q = 3$ yielding Chern numbers, bottom to top, of -1,1,0.
+Right:$p = 3$, $q = 5$ yielding Chern numbers, bottom to top, of 2, -1, 1, -2, 0.
+\label{fig:bandstructure} }
+
+\end{figure}
+
+
+\subsection{The CDW butterfly}
+Mapping the charge density wave to the Hofstadter problem, and setting the chemical potential to zero, the Hofstadter butterfly is retrieved.
+The butterfly can be constructed by fixing $k$ and $\phi$, while varying $Q$.
+The relation $\frac{Q a}{2 \pi} = \frac{p}{q}$ must be obeyed however and for numerical calculations an upper limit on $q$ must be made.
+The resulting values for $Q$ result from a list of fractions where
+$1 \leq p \leq q$ and all the fractions are reduced to the lowest term, making $p$ and $q$ coprime.
+The requirement of the fractions is that
+$0 < \frac{p}{q} \leq 1$.
+For a particular value of $\frac{p}{q}$, there are $q$ eigenvalues or bands, and so a list of fractions and energies is obtained.
+There is a Chern number associated with every band, which can be used to color the butterfly according to the Chern number.
+
+
+\begin{figure}[tbph]
+\label{fig:bandstructure}
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics{butterfly50ChernNormalTotal.png}
+\label{fig:sub1}
+\end{subfigure}
+\begin{subfigure}{.1\linewidth}
+\centering
+\includegraphics{butterfly50ChernAccuTotal.png}
+\label{fig:sub2}
+\end{subfigure}
+\caption{Allowed energies of the of the CDW Hamiltonian with phase $\phi = 0$ using the method described in this section with a  maximum value of $q = 50$.
+Left: The spectrum colored using the Chern numbers.
+Right:The energy spectrum where the coloring is done by adding Accumulating the Chern numbers starting at the lowest band and truncating at -4 and 4.}
+\end{figure}
+
+
+\section{Chern numbers and Electron transport}
+
+Varying the phase of the CDW, does not necessarily transport the electrons along the chain.
+The transport depends on the chemical potential.
+For $\mu(Q=\frac{ap}{q}) = 0$, we have no electron transport.
+This corresponds to our Chern numbers being $0$.
+This is in agreement with the calculations of the previous section.
+The important connection to make is that the Chern numbers are antisymmetric at the same point as the chemical potential is.
+This is the point for which the electron transport changes directions.
+The antisymmetry of the Chern numbers is easily seen in the antisymmetry around $\frac{1}{2}$ of the colouring of the spectrum as a function of $\frac{p}{q}$ in the Hofstadter butterfly in Fig. 2.\\
+The transport of electrons along the chain is analogous to the transport of electrons in the integer quantum Hall effect.
 
 \section{Topological classification}
 
 The charge density wave Hamiltonian in $k$-space can be divided in different
-classes. Originally the classification was developed for translational or
+classes \cite{ryu2010}. Originally the classification was developed for translational or
 rotational invariant systems, but because the dihedral group is the only
 nontrivial space group another classification is made. When symmetries are taken
 into account a topological classification can be made. If a system behaves in
@@ -199,7 +272,7 @@ To classify our Hamiltonian we see that there are no zero's on the diagonal,
 which exclude the 3 chiral cases. Because the Hamiltonian can be expressed as a 2$\times$2
  matrix, exept in the case of half filling, the four Bogoliubov-de Gennes cases. From the three
  clases left, it must be the one where the Hamiltonian in $k$ space is complex.
- With this reasoning our Hamiltonian fall into the symmetry-free class.
+ With this reasoning our Hamiltonian falls into the symmetry-free class.
 
 
 % \subsection{Figures and Tables}
