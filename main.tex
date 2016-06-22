@@ -26,10 +26,10 @@
 \usepackage{color}
 
 \title{\LARGE \bf
-  Spectrum of commensurate charge density waves on a one-dimensional lattice
+  Titel
 }
 
-% \author{ \parbox{3 in}{\centering Huibert Kwakernaak*
+%\author{ \parbox{3 in}{\centering Huibert Kwakernaak*
 %         \thanks{*Use the $\backslash$thanks command to put information here}\\
 %         Faculty of Electrical Engineering, Mathematics and Computer Science\\
 %         University of Twente\\
@@ -42,12 +42,9 @@
 %         Wright State University\\
 %         Dayton, OH 45435, USA\\
 %         {\tt\small pmisra@cs.wright.edu}}
-% }
+%}
 
-\author{Arthur Boetes, Bruno Eijsvoogel, Robert Hauer, Geert Kapteijns\\
-Seminar Theoretical Physics\\
-University of Amsterdam\\
-June 2016
+\author{Arthur Boetes, Bruno Eijsvoogel, Robert Hauer, Geert Kapteijns
 }
 
 \begin{document}
@@ -77,11 +74,11 @@ Materials in which the electron density $\rho(x)$ is modulated with a wave of
 wavelength $\lambda = \frac{2\pi}{Q}$ are said to contain a charge density wave.
 In this paper, we will treat a simple model for a one-dimensional chain of atoms containing such a charge density wave:
 
-\begin{align}\label{hamiltonian}
+\begin{align}
 H = -t \sum_x (c_x^{\dagger}c_{x+a} + c_x^{\dagger}c_{x-a}) + \sum_x (\mu + \Delta \cos(Qx + \phi))c_x^{\dagger}c_x
 \end{align}
 
-The first term describes hopping between sites, and the second term contains the chemical potential and the charge density wave. From the fact that a band gap opens at $\mu$, it follows that $\mu = -2t\cos(\frac{Qa}{2})$.
+The first term describes hopping between sites, and the second term contains the chemical potential and the charge density wave. From the fact that at a band gap opens at $\mu$, it follows that $\mu = -2t\cos(\frac{Qa}{2})$.
 
 If $\lambda = n a$ with $n$ integer and $a$ the lattice spacing, the charge order is said to be commensurate, i.e. the charge modulation is neatly periodic in $n$ lattice sites. Otherwise, the charge order is called incommensurate.
 
@@ -148,8 +145,8 @@ The transport of electrons along the chain is analogous to the transport of elec
 In the next subsection we look more carefully at this comparison.
 
 \subsection{The Hofstadter Hamiltonian vs CDW}
-The CDW spectrum is a Hofstadter butterfly \cite{hofstadter1976}. It turns out that the CDW is very similar to that where the butterfly originally arose.
-So let's compare our real-space Hamiltonian to that of the tight-binding model on an isotropic square lattice under a vertical uniform magnetic field in $k$-space \cite{Yoshioka}:
+Now we will compare our real-space Hamiltonian to that of the tight-binding model on an
+isotropic square lattice under a vertical uniform magnetic field in $k$-space \cite{Yoshioka}:
 $$
 \mathcal{H}=-t\sum_{k_{x},k_{y}}(c_{1}^{\dagger}(\textbf{k}),c_{2}^{\dagger}(\textbf{k}),\dots,c_{q}^{\dagger}(\textbf{k}))\tilde{\mathcal{H}}_{k}(c_{1}(\textbf{k}),c_{2}(\textbf{k}),\dots,c_{q}(\textbf{k}))
 $$
@@ -219,7 +216,26 @@ which exclude the 3 chiral cases. Because the Hamiltonian can be expressed as a 
 
 Positioning Figures and Tables: Place figures and tables at the top and bottom of columns. Avoid placing them in the middle of columns. Large figures and tables may span across both columns. Figure captions should be below the figures; table heads should appear above the tables. Insert figures and tables after they are cited in the text. Use the abbreviation ÒFig. 1Ó, even at the beginning of a sentence.
 
+\definecolor{black}{rgb}{0.0,0.0,0.0}
+\newcommand\T{\rule{0pt}{1em}}
 
+$$
+\begin{array}{c|rrr|cccccccc}
+\hline
+\color{black}{\textrm{class}} & \color{black}{S} & \color{black}{C} & \color{black}{T} & \color{black}{d=0} & \color{black}{1} & \color{black}{2} & \color{black}{3} & \color{black}{4} & \color{black}{5} & \color{black}{6} & \color{black}{7}\T\\
+\hline \color{black}{\textrm{A}} & \color{black}{} & \color{black}{} & \color{black}{} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}} & \color{black}{}\T\\
+\color{black}{\textrm{AIII}} & \color{black}{1} & \color{black}{} & \color{black}{} & \color{black}{} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}}\T\\
+\hline \color{black}{\textrm{AI}} & \color{black}{} & \color{black}{} & \color{black}{1} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{} & \color{black}{} & \color{black}{2\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}_2} & \color{black}{\mathbb{Z}_2}\T\\
+\color{black}{\textrm{BDI}} & \color{black}{1} & \color{black}{1} & \color{black}{1} & \color{black}{\mathbb{Z}_2} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{} & \color{black}{} & \color{black}{2\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}_2}\T\\
+\color{black}{\textrm{D}} & \color{black}{} & \color{black}{1} & \color{black}{} & \color{black}{\mathbb{Z}_2} & \color{black}{\mathbb{Z}_2} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{} & \color{black}{} & \color{black}{2\mathbb{Z}} & \color{black}{}\T\\
+\color{black}{\textrm{DIII}} & \color{black}{1} & \color{black}{1} & \color{black}{-1} & \color{black}{} & \color{black}{\mathbb{Z}_2} & \color{black}{\mathbb{Z}_2} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{} & \color{black}{} & \color{black}{2\mathbb{Z}}\T\\
+\color{black}{\textrm{AII}} & \color{black}{} & \color{black}{} & \color{black}{-1} & \color{black}{2\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}_2} & \color{black}{\mathbb{Z}_2} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{} & \color{black}{}\T\\
+\color{black}{\textrm{CII}} & \color{black}{1} & \color{black}{-1} & \color{black}{-1} & \color{black}{} & \color{black}{2\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}_2} & \color{black}{\mathbb{Z}_2} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{}\T\\
+\color{black}{\textrm{C}} & \color{black}{} & \color{black}{-1} & \color{black}{} & \color{black}{} & \color{black}{} & \color{black}{2\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}_2} & \color{black}{\mathbb{Z}_2} & \color{black}{\mathbb{Z}} & \color{black}{}\T\\
+\color{black}{\textrm{CI}} & \color{black}{1} & \color{black}{-1} & \color{black}{1} & \color{black}{} & \color{black}{} & \color{black}{} & \color{black}{2\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}_2} & \color{black}{\mathbb{Z}_2} & \color{black}{\mathbb{Z}}\\
+\hline
+\end{array}
+$$
 %    \begin{figure}[thpb]
 %       \centering
 %       \framebox{\parbox{3in}{We suggest that you use a text box to insert a graphic (which is ideally a 300 dpi TIFF or EPS file, with all fonts embedded) because, in an document, this method is somewhat more stable than directly inserting a picture.
