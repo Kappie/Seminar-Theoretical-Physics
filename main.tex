@@ -102,9 +102,8 @@ Where $\epsilon_k = -2t \cos(ka) + \mu $ and $\Delta_\phi = \Delta e^{i\phi}$, i
 \subsection{Matrix Form Hamiltonian}
 We will take a few steps to put this Hamiltonian in Matrix form.
 This will prove to be a more convinient way to perform numerical calculations.\\
-First we group terms in the sum over $k$ into $q$ sums over $m$. We haven't assumed anything new about any values.
+First we group terms in the sum over $k$ into $q$ sums over $m$.
 
-This is just rewritting.
 \begin{align*}
 H &= \sum_{0 \leq k < \frac{2\pi}{a}} (\frac{1}{2}\epsilon_k c_k^{\dagger}c_k + \Delta_\phi c_k^{\dagger}c_{k+Q} + \text{H.c.})\\
 &=\sum_{0 \leq k < \frac{2\pi}{qa}} \sum_{m=0}^{q-1}  (\frac{1}{2}\epsilon_{k+\frac{2\pi m}{qa}} c_{k+\frac{2\pi m}{qa}}^{\dagger}c_{k+\frac{2\pi m}{qa}} + \Delta_\phi c_{k+\frac{2\pi m}{qa}}^{\dagger}c_{k+\frac{2\pi m}{qa}+Q} + \text{H.c.})\\
@@ -207,8 +206,10 @@ Because these edge states do not
 depend on small perturbations in the bulk of the material it is possible to
 measure variables at the edge that give information of the whole material.
 To classify our Hamiltonian we see that there are no zero's on the diagonal,
-which exclude the 3 chiral cases. Because the Hamiltonian can be expressed as a 2x2
+which exclude the 3 chiral cases. Because the Hamiltonian can be expressed as a 2$\times$2
  matrix, exept in the case of half filling, the four Bogoliubov-de Gennes cases. From the three
+ clases left, it must be the one where the Hamiltonian in $k$ space is complex.
+ With this reasoning our Hamiltonian fall into the symmetry-free class.
 
 
 \subsection{Figures and Tables}
@@ -221,7 +222,7 @@ Positioning Figures and Tables: Place figures and tables at the top and bottom o
 $$
 \begin{array}{c|rrr|cccccccc}
 \hline
-\color{black}{\textrm{class}} & \color{black}{C} & \color{black}{P} & \color{black}{T} & \color{black}{d=0} & \color{black}{1} & \color{black}{2} & \color{black}{3} & \color{black}{4} & \color{black}{5} & \color{black}{6} & \color{black}{7}\T\\
+\color{black}{\textrm{class}} & \color{black}{S} & \color{black}{C} & \color{black}{T} & \color{black}{d=0} & \color{black}{1} & \color{black}{2} & \color{black}{3} & \color{black}{4} & \color{black}{5} & \color{black}{6} & \color{black}{7}\T\\
 \hline \color{black}{\textrm{A}} & \color{black}{} & \color{black}{} & \color{black}{} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}} & \color{black}{}\T\\
 \color{black}{\textrm{AIII}} & \color{black}{1} & \color{black}{} & \color{black}{} & \color{black}{} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}}\T\\
 \hline \color{black}{\textrm{AI}} & \color{black}{} & \color{black}{} & \color{black}{1} & \color{black}{\mathbb{Z}} & \color{black}{} & \color{black}{} & \color{black}{} & \color{black}{2\mathbb{Z}} & \color{black}{} & \color{black}{\mathbb{Z}_2} & \color{black}{\mathbb{Z}_2}\T\\
